@@ -82,7 +82,7 @@ const Sidebar = () => {
 
       {/* Menu Items */}
       {menuItems.map((section, index) => (
-        <div key={index} className='px-4'>
+        <div key={index} className='px-4' id={section.label}>
           <h3 className='text-xs font-semibold text-gray-500 py-1 px-2'>
             {section.label}
           </h3>
