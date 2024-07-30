@@ -12,6 +12,7 @@ const steps = [
     position: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
     highlight: null,
     arrow: null,
+    count: null,
   },
   {
     header: 'Your One-Stop Shop',
@@ -20,6 +21,7 @@ const steps = [
     position: { top: '35%', left: '35%', transform: 'translate(-50%, -50%)' },
     highlight: { top: '18%', left: '8%', width: '280px', height: '60px' },
     arrow: { left: '-10%', top: '32%' },
+    step_count: true,
   },
   {
     header: 'Lay the Foundation',
@@ -28,6 +30,7 @@ const steps = [
     position: { top: '45%', left: '35%', transform: 'translate(-50%, -50%)' },
     highlight: { top: '27%', left: '8%', width: '280px', height: '60px' },
     arrow: { left: '-10%', top: '32%' },
+    step_count: true,
   },
   {
     header: 'Powering Insight',
@@ -36,6 +39,7 @@ const steps = [
     position: { top: '45%', left: '35%', transform: 'translate(-50%, -50%)' },
     highlight: { top: '36%', left: '8%', width: '280px', height: '125px' },
     arrow: { left: '-10%', top: '55%' },
+    step_count: true,
   },
   {
     header: 'Uncover Opportunities',
@@ -44,6 +48,7 @@ const steps = [
     position: { top: '55%', left: '35%', transform: 'translate(-50%, -50%)' },
     highlight: { top: '55%', left: '8%', width: '280px', height: '90px' },
     arrow: { left: '-10%', top: '65%' },
+    step_count: true,
   },
   {
     header: 'Spread the Word',
@@ -52,6 +57,7 @@ const steps = [
     position: { top: '55%', left: '35%', transform: 'translate(-50%, -50%)' },
     highlight: { top: '70%', left: '8%', width: '280px', height: '125px' },
     arrow: { left: '-10%', top: '95%' },
+    step_count: true,
   },
   {
     header: 'Congratulations!🎉',
@@ -60,6 +66,7 @@ const steps = [
     position: { top: '55%', left: '30%', transform: 'translate(-50%, -50%)' },
     highlight: { top: '0%', left: '28.5%', width: '310px', height: '100px' },
     arrow: { left: '50%', top: '-13.5%', transform: 'rotate(90deg)' },
+    step_count: null,
   },
   {
     header: 'Before you continue ...',
@@ -68,6 +75,7 @@ const steps = [
     position: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' },
     highlight: null,
     arrow: null,
+    step_count: null,
   },
 ];
 
@@ -153,24 +161,29 @@ const StepWizard = () => {
                   {steps[currentStep].description}
                 </p>
                 <div className='flex space-x-2'>
-                  {steps.map((step, index) => (
-                    <span
-                      key={index}
-                      className={`h-2 w-2 rounded-full ${
-                        currentStep === index ? 'bg-gray-700' : 'bg-gray-300'
-                      }`}
-                    ></span>
-                  ))}
+                  {steps[currentStep].step_count &&
+                    steps
+                      .filter((step) => step.step_count)
+                      .map((step, index) => (
+                        <span
+                          key={index}
+                          className={`h-2 w-2 rounded-full ${
+                            currentStep - 1 === index
+                              ? 'bg-gray-700'
+                              : 'bg-gray-300'
+                          }`}
+                        ></span>
+                      ))}
                 </div>
                 <div className='flex mt-4 justify-between space-x-4'>
                   <button
-                    className='bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400'
+                    className=' text-gray-700 px-4 py-2 rounded-2xl hover:text-white hover:bg-gray-500'
                     onClick={skipTour}
                   >
                     Skip
                   </button>
                   <button
-                    className='bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600'
+                    className='bg-indigo-100 rounded-2xl text-indigo-600 hover:text-white px-4 py-2  hover:bg-indigo-600'
                     onClick={nextStep}
                   >
                     Next
