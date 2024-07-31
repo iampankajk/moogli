@@ -5,7 +5,7 @@ const Overview = () => {
   return (
     <div className='grid grid-cols-4 gap-4'>
       {['Total', 'Scope 1', 'Scope 2', 'Scope 3'].map((item, index) => (
-        <div className='p-4 bg-white rounded-xl shadow-md '>
+        <div className='p-4 bg-white rounded-xl shadow-md ' key={index}>
           <div className='flex justify-between items-center'>
             <h3 className='text-sm font-semibold text-gray-500'>{item}</h3>
             {index === 0 ? (
