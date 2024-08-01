@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import './StepWizard.css';
 import Image from 'next/image';
-import { steps } from '../../data/data.json';
+import { steps } from '@/data/data.json';
 
 const TRANSITION_TIMEOUT = 300;
 
