@@ -10,7 +10,7 @@ const GettingStarted = () => {
         </div>
       </div>
       <div className='flex flex-col items-center text-center'>
-        <Image src='/frame.svg' alt='frame' height={100} width={100} />
+        <Image src='/Frame.svg' alt='frame' height={100} width={100} />
         <h2 className='text-lg font-semibold'>Getting started with Mupi</h2>
         <p className='text-gray-600 mt-2'>
           Rhoncus purus mauris quis suspendisse facilisi maecenas.
